@@ -1,7 +1,7 @@
 {
     "domain": "fuelfinder",
     "name": "Fuelfinder",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "issue_tracker": "https://github.com/jakob1379/hacs-fuelfinder/issues",
     "documentation": "https://github.com/jakob1379/hacs-fuelfinder",
     "requirements": [
