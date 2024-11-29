@@ -1,8 +1,9 @@
-"""Sensors to fetch fuel prices."""
+"""""Sensors to fetch fuel prices."""
 import logging
 from datetime import timedelta
 from homeassistant.helpers.entity import Entity
 from fuelfinder import fetch_gas_prices
+from .const import DOMAIN, ATTRIBUTION, EXPECTED_FUEL_TYPES
 
 SCAN_INTERVAL = timedelta(minutes=5)
 LOGGER = logging.getLogger(__name__)
@@ -48,7 +49,7 @@ class FuelPriceSensor(Entity):
         self._state = None
         self._attributes = {
             "fuel_type": fuel_type,
-            "attribution": "Data provided by fuelfinder.dk"
+            "attribution": ATTRIBUTION
         }
         self.update_data(initial_data)
 
