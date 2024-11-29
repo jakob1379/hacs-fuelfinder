@@ -12,7 +12,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     async_add_entities([FuelPriceSensor()])
 
 class FuelPriceSensor(Entity):
-    """Representation of a Fuelfinder sensor."""
+    """Representation of a Fuelfinder sensor."
 
     def __init__(self):
         """Initialize the sensor."""
