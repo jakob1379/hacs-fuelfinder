@@ -2,9 +2,10 @@
     "domain": "fuelfinder",
     "name": "Fuelfinder",
     "version": "0.1.0",
-    "documentation": "https://github.com/yourusername/hacs-fuelfinder.git",
+    "issue_tracker": "https://github.com/jakob1379/hacs-fuelfinder/issues",
+    "documentation": "https://github.com/jakob1379/hacs-fuelfinder",
     "requirements": [
-        "fuelfinder>=0.1.0"
+        "fuelfinder>=0.1.1"
     ],
     "dependencies": [],
     "codeowners": ["@jakob1379"],

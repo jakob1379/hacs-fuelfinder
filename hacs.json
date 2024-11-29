@@ -1,0 +1,7 @@
+{
+    "name": "Fuelfinder",
+    "content_in_root": false,
+    "homeassistant": "2024.11.3",
+    "hacs": "1.0.0"
+    "category": "integration"
+}
