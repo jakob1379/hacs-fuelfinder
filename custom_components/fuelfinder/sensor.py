@@ -1,5 +1,4 @@
 """Sensor to fetch fuel prices."""
-
 import logging
 from datetime import timedelta
 from homeassistant.components.sensor import SensorEntity
@@ -11,8 +10,12 @@ LOGGER = logging.getLogger(__name__)
 
 ATTRIBUTION = "Data provided by fuelfinder.dk"
 
+async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
+    """Set up Fuelfinder sensor from yaml configuration."""
+    async_add_entities([FuelPriceSensor()])
+
 async def async_setup_entry(hass, config_entry, async_add_entities):
-    """Set up the Fuelfinder sensor from a config entry."""
+    """Set up the sensor for a config entry (used by config flow)."""
     async_add_entities([FuelPriceSensor()])
 
 
@@ -34,8 +37,6 @@ class FuelPriceSensor(SensorEntity):
         try:
             data = fetch_gas_prices("https://www.fuelfinder.dk/listprices.php")
             self._attr_state = data.to_dict()  # Example processing, adapt as needed
-            # Add any other attributes you might want from the data
-            self._attr_extra_state_attributes.update(data.describe()) # Example
         except Exception as e:
             LOGGER.error("Error fetching fuel prices: %s", e)
             self._attr_state = None
