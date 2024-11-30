@@ -1,11 +1,10 @@
-"""""Sensors to fetch fuel prices."""
+"""Sensors to fetch fuel prices."""
 import logging
 from datetime import timedelta
-from homeassistant.helpers.entity import Entity
+from homeassistant.components.sensor import SensorEntity
 from fuelfinder import fetch_gas_prices
-from .const import DOMAIN, ATTRIBUTION, EXPECTED_FUEL_TYPES
 
-SCAN_INTERVAL = timedelta(minutes=5)
+SCAN_INTERVAL = timedelta(minutes=60)
 LOGGER = logging.getLogger(__name__)
 
 # Static fuel types we expect to always be present
@@ -40,7 +39,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     except Exception as e:
         LOGGER.error("Error during initial sensor setup: %s", e)
 
-class FuelPriceSensor(Entity):
+class FuelPriceSensor(SensorEntity):
     """Representation of a Fuelfinder sensor for a specific fuel type."""
 
     def __init__(self, fuel_type, initial_data):
@@ -49,7 +48,7 @@ class FuelPriceSensor(Entity):
         self._state = None
         self._attributes = {
             "fuel_type": fuel_type,
-            "attribution": ATTRIBUTION
+            "attribution": "Data provided by fuelfinder.dk"
         }
         self.update_data(initial_data)
 
@@ -68,9 +67,11 @@ class FuelPriceSensor(Entity):
 
     def update_data(self, fuel_data):
         """Update sensor state and attributes with fetched fuel data."""
-        self._state = max(
+        # Set state to the lowest price available (or None if no valid prices)
+        self._state = min(
             (price for price in fuel_data.values() if price is not None), default=None
         )
+        # Update attributes with detailed pricing
         self._attributes.update(fuel_data)
 
     @property
@@ -87,4 +88,3 @@ class FuelPriceSensor(Entity):
     def extra_state_attributes(self):
         """Return the state attributes."""
         return self._attributes
-
