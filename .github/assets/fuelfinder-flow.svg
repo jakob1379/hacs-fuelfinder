@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="t d">
+<title id="t">Fuelfinder data flow</title>
+<desc id="d">The fuelfinder.dk price list has one row per fuel company and one column per fuel type. For each fuel type the integration takes the lowest listed price and publishes it as a Home Assistant sensor.</desc>
+<style>
+:root{--bg:#E8EEF2;--panel:#FFFFFF;--ink:#12303F;--muted:#587080;--line:#D5DFE5;--accent:#C98A00;--accent-soft:rgba(201,138,0,.16);--band:rgba(18,48,63,.06);--price:#12303F}
+@media (prefers-color-scheme:dark){:root{--bg:#0E1E28;--panel:#152A36;--ink:#E3ECF1;--muted:#8DA4B2;--line:#23404F;--accent:#FFC23D;--accent-soft:rgba(255,194,61,.15);--band:rgba(255,255,255,.05);--price:#FFC23D}}
+text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;fill:var(--ink);font-variant-numeric:tabular-nums}
+.muted{fill:var(--muted)}
+.panel{fill:var(--panel);stroke:var(--line)}
+.hair{stroke:var(--line);stroke-width:1}
+.band{fill:var(--band);opacity:0}
+.scan{fill:var(--accent);opacity:0}
+.ring{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2;transform-box:fill-box;transform-origin:center}
+.dot{opacity:0}
+.dot circle:first-child{fill:var(--accent-soft)}
+.dot circle:last-child{fill:var(--accent)}
+.guide{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-linejoin:round;stroke-dasharray:1 0}
+.card{fill:var(--bg);stroke:var(--accent);stroke-width:2;stroke-opacity:0}
+.icon{fill:var(--accent-soft)}
+.glyph{fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.val{fill:var(--price);font-size:24px;font-weight:700}
+.ph{opacity:0}
+@media (prefers-reduced-motion:no-preference){
+.guide{stroke-dasharray:1 1}
+@keyframes band0{0%,0.00%{opacity:0}3.33%,28.33%{opacity:1}31.67%,100%{opacity:0}}@keyframes scan0{0%,2.50%{opacity:0;transform:translateY(128px)}2.92%{opacity:1;transform:translateY(128px)}13.75%{opacity:1;transform:translateY(345px)}14.58%,100%{opacity:0;transform:translateY(345px)}}@keyframes ring0{0%,14.17%{opacity:0;transform:scale(.85)}16.67%{opacity:1;transform:scale(1)}95.83%{opacity:1;transform:scale(1)}99.17%,100%{opacity:0;transform:scale(1)}}@keyframes dot0{0%,16.25%{opacity:0;transform:translate(256.0px,282px)}16.67%{opacity:1;transform:translate(256.0px,282px)}19.58%{opacity:1;transform:translate(586px,282px)}21.67%{opacity:1;transform:translate(614px,126px)}23.75%{opacity:1;transform:translate(644px,126px)}25.00%,100%{opacity:0;transform:translate(644px,126px)}}@keyframes guide0{0%,16.25%{stroke-dashoffset:1;opacity:.35}23.75%{stroke-dashoffset:0;opacity:1}95.83%{stroke-dashoffset:0;opacity:1}99.17%,100%{stroke-dashoffset:0;opacity:.35}}@keyframes val0{0%,24.33%{opacity:0}25.83%,95.83%{opacity:1}99.17%,100%{opacity:0}}@keyframes ph0{0%,23.33%{opacity:1}24.33%,95.83%{opacity:0}99.17%,100%{opacity:1}}@keyframes flash0{0%,23.33%{stroke-opacity:0}24.58%{stroke-opacity:1}31.67%,100%{stroke-opacity:0}}@keyframes band1{0%,33.33%{opacity:0}36.67%,61.67%{opacity:1}65.00%,100%{opacity:0}}@keyframes scan1{0%,35.83%{opacity:0;transform:translateY(128px)}36.25%{opacity:1;transform:translateY(128px)}47.08%{opacity:1;transform:translateY(345px)}47.92%,100%{opacity:0;transform:translateY(345px)}}@keyframes ring1{0%,47.50%{opacity:0;transform:scale(.85)}50.00%{opacity:1;transform:scale(1)}95.83%{opacity:1;transform:scale(1)}99.17%,100%{opacity:0;transform:scale(1)}}@keyframes dot1{0%,49.58%{opacity:0;transform:translate(376.0px,238px)}50.00%{opacity:1;transform:translate(376.0px,238px)}52.92%{opacity:1;transform:translate(586px,238px)}55.00%{opacity:1;transform:translate(614px,210px)}57.08%{opacity:1;transform:translate(644px,210px)}58.33%,100%{opacity:0;transform:translate(644px,210px)}}@keyframes guide1{0%,49.58%{stroke-dashoffset:1;opacity:.35}57.08%{stroke-dashoffset:0;opacity:1}95.83%{stroke-dashoffset:0;opacity:1}99.17%,100%{stroke-dashoffset:0;opacity:.35}}@keyframes val1{0%,57.67%{opacity:0}59.17%,95.83%{opacity:1}99.17%,100%{opacity:0}}@keyframes ph1{0%,56.67%{opacity:1}57.67%,95.83%{opacity:0}99.17%,100%{opacity:1}}@keyframes flash1{0%,56.67%{stroke-opacity:0}57.92%{stroke-opacity:1}65.00%,100%{stroke-opacity:0}}@keyframes band2{0%,66.67%{opacity:0}70.00%,95.00%{opacity:1}98.33%,100%{opacity:0}}@keyframes scan2{0%,69.17%{opacity:0;transform:translateY(128px)}69.58%{opacity:1;transform:translateY(128px)}80.42%{opacity:1;transform:translateY(345px)}81.25%,100%{opacity:0;transform:translateY(345px)}}@keyframes ring2{0%,80.83%{opacity:0;transform:scale(.85)}83.33%{opacity:1;transform:scale(1)}95.83%{opacity:1;transform:scale(1)}99.17%,100%{opacity:0;transform:scale(1)}}@keyframes dot2{0%,82.92%{opacity:0;transform:translate(494.0px,326px)}83.33%{opacity:1;transform:translate(494.0px,326px)}86.25%{opacity:1;transform:translate(586px,326px)}88.33%{opacity:1;transform:translate(614px,294px)}90.42%{opacity:1;transform:translate(644px,294px)}91.67%,100%{opacity:0;transform:translate(644px,294px)}}@keyframes guide2{0%,82.92%{stroke-dashoffset:1;opacity:.35}90.42%{stroke-dashoffset:0;opacity:1}95.83%{stroke-dashoffset:0;opacity:1}99.17%,100%{stroke-dashoffset:0;opacity:.35}}@keyframes val2{0%,91.00%{opacity:0}92.50%,95.83%{opacity:1}99.17%,100%{opacity:0}}@keyframes ph2{0%,90.00%{opacity:1}91.00%,95.83%{opacity:0}99.17%,100%{opacity:1}}@keyframes flash2{0%,90.00%{stroke-opacity:0}91.25%{stroke-opacity:1}98.33%,100%{stroke-opacity:0}}
+.band0{animation:band0 12s linear infinite}.scan0{animation:scan0 12s linear infinite}.ring0{animation:ring0 12s linear infinite}.dot0{animation:dot0 12s linear infinite}.guide0{animation:guide0 12s linear infinite}.val0{animation:val0 12s linear infinite}.ph0{animation:ph0 12s linear infinite}.flash0{animation:flash0 12s linear infinite}.band1{animation:band1 12s linear infinite}.scan1{animation:scan1 12s linear infinite}.ring1{animation:ring1 12s linear infinite}.dot1{animation:dot1 12s linear infinite}.guide1{animation:guide1 12s linear infinite}.val1{animation:val1 12s linear infinite}.ph1{animation:ph1 12s linear infinite}.flash1{animation:flash1 12s linear infinite}.band2{animation:band2 12s linear infinite}.scan2{animation:scan2 12s linear infinite}.ring2{animation:ring2 12s linear infinite}.dot2{animation:dot2 12s linear infinite}.guide2{animation:guide2 12s linear infinite}.val2{animation:val2 12s linear infinite}.ph2{animation:ph2 12s linear infinite}.flash2{animation:flash2 12s linear infinite}
+}
+</style>
+<rect width="960" height="400" rx="24" fill="var(--bg)"/>
+<rect class="panel" x="32.5" y="40.5" width="540" height="320" rx="16"/>
+<text class="muted" x="56" y="72" font-size="14">fuelfinder.dk/listprices.php</text>
+<rect class="band band0" x="196" y="88" width="120" height="264" rx="10"/>
+<rect class="band band1" x="316" y="88" width="120" height="264" rx="10"/>
+<rect class="band band2" x="436" y="88" width="116" height="264" rx="10"/>
+<text x="56" y="113" font-size="13" font-weight="700">Benzinselskab</text>
+<text x="256.0" y="113" font-size="13" font-weight="700" text-anchor="middle">Blyfri 95 (E10)</text>
+<text x="376.0" y="113" font-size="13" font-weight="700" text-anchor="middle">Diesel (B7)</text>
+<text x="494.0" y="113" font-size="13" font-weight="700" text-anchor="middle">EL lyn</text>
+<line class="hair" x1="48" y1="127.5" x2="556" y2="127.5"/>
+<line class="hair" x1="48" y1="171.5" x2="556" y2="171.5" stroke-dasharray="2 4"/>
+<line class="hair" x1="48" y1="215.5" x2="556" y2="215.5" stroke-dasharray="2 4"/>
+<line class="hair" x1="48" y1="259.5" x2="556" y2="259.5" stroke-dasharray="2 4"/>
+<line class="hair" x1="48" y1="303.5" x2="556" y2="303.5" stroke-dasharray="2 4"/>
+<rect class="ring ring0" x="210" y="267" width="92" height="30" rx="15"/>
+<rect class="ring ring1" x="330" y="223" width="92" height="30" rx="15"/>
+<rect class="ring ring2" x="450" y="311" width="88" height="30" rx="15"/>
+<text x="56" y="155" font-size="15">Company A</text>
+<text x="256.0" y="155" font-size="16" text-anchor="middle">13.49</text>
+<text x="376.0" y="155" font-size="16" text-anchor="middle">12.79</text>
+<text x="494.0" y="155" font-size="16" text-anchor="middle">4.99</text>
+<text x="56" y="199" font-size="15">Company B</text>
+<text x="256.0" y="199" font-size="16" text-anchor="middle">13.29</text>
+<text x="376.0" y="199" font-size="16" text-anchor="middle">12.69</text>
+<text class="muted" x="494.0" y="199" font-size="16" text-anchor="middle">–</text>
+<text x="56" y="243" font-size="15">Company C</text>
+<text x="256.0" y="243" font-size="16" text-anchor="middle">13.59</text>
+<text x="376.0" y="243" font-size="16" text-anchor="middle">12.49</text>
+<text x="494.0" y="243" font-size="16" text-anchor="middle">5.49</text>
+<text x="56" y="287" font-size="15">Company D</text>
+<text x="256.0" y="287" font-size="16" text-anchor="middle">13.19</text>
+<text x="376.0" y="287" font-size="16" text-anchor="middle">12.89</text>
+<text x="494.0" y="287" font-size="16" text-anchor="middle">4.79</text>
+<text x="56" y="331" font-size="15">Company E</text>
+<text x="256.0" y="331" font-size="16" text-anchor="middle">13.39</text>
+<text class="muted" x="376.0" y="331" font-size="16" text-anchor="middle">–</text>
+<text x="494.0" y="331" font-size="16" text-anchor="middle">4.59</text>
+<rect class="scan scan0" x="206" y="0" width="100" height="3" rx="1.5"/>
+<rect class="scan scan1" x="326" y="0" width="100" height="3" rx="1.5"/>
+<rect class="scan scan2" x="446" y="0" width="96" height="3" rx="1.5"/>
+<path class="guide guide0" pathLength="1" d="M556 282H586L614 126H644"/>
+<path class="guide guide1" pathLength="1" d="M556 238H586L614 210H644"/>
+<path class="guide guide2" pathLength="1" d="M556 326H586L614 294H644"/>
+<rect class="panel" x="628.5" y="40.5" width="300" height="320" rx="16"/>
+<text class="muted" x="652" y="72" font-size="14">Home Assistant sensors</text>
+<rect class="card flash0" x="644" y="92" width="268" height="68" rx="12"/>
+<circle class="icon" cx="676" cy="126" r="18"/>
+<path class="glyph" d="M669 135V119a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2V135M667 135H682M670 125H679M680 123l4 3v7a1.5 1.5 0 0 0 3 0V122l-3-3"/>
+<text x="706" y="118" font-size="13">Fuelfinder - Blyfri 95 (E10)</text>
+<text class="val val0" x="706" y="146">13.19</text>
+<text class="val ph ph0 muted" x="706" y="146" style="fill:var(--muted)">–.––</text>
+<rect class="card flash1" x="644" y="176" width="268" height="68" rx="12"/>
+<circle class="icon" cx="676" cy="210" r="18"/>
+<path class="glyph" d="M669 219V203a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2V219M667 219H682M670 209H679M680 207l4 3v7a1.5 1.5 0 0 0 3 0V206l-3-3"/>
+<text x="706" y="202" font-size="13">Fuelfinder - Diesel (B7)</text>
+<text class="val val1" x="706" y="230">12.49</text>
+<text class="val ph ph1 muted" x="706" y="230" style="fill:var(--muted)">–.––</text>
+<rect class="card flash2" x="644" y="260" width="268" height="68" rx="12"/>
+<circle class="icon" cx="676" cy="294" r="18"/>
+<path class="glyph" d="M678 284L670 295H677L674 304L682 293H675Z"/>
+<text x="706" y="286" font-size="13">Fuelfinder - EL lyn</text>
+<text class="val val2" x="706" y="314">4.59</text>
+<text class="val ph ph2 muted" x="706" y="314" style="fill:var(--muted)">–.––</text>
+<text class="muted" x="652" y="346" font-size="12">State is the lowest price; attributes list all.</text>
+<g class="dot dot0"><circle r="10"/><circle r="4.5"/></g>
+<g class="dot dot1"><circle r="10"/><circle r="4.5"/></g>
+<g class="dot dot2"><circle r="10"/><circle r="4.5"/></g>
+</svg>
